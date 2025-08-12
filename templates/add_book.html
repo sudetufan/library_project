@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+
+    <h1 class="title">➕ Add New Book</h1>
+
+    <form method="POST" class="form-card">
+        <div class="form-group">
+            <label>Book Title</label>
+            <input type="text" name="title" required class="input-text">
+        </div>
+        <div class="form-group">
+            <label>Author</label>
+            <input type="text" name="author" required class="input-text">
+        </div>
+        <div class="form-group">
+            <label>Pages</label>
+            <input type="number" name="pages" class="input-text">
+        </div>
+        <div class="form-group">
+            <label>Status</label>
+            <select name="status" class="select-box">
+                <option>Read</option>
+                <option>To be Read</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success">Add Book</button>
+        <a href="/" class="btn btn-secondary">Cancel</a>
+    </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Personal Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="header">
+    <div class="header-left">
+        <h1>Bookie</h1>
+    </div>
+    <div class="header-right">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/add" class="nav-link">Add</a>
+        <a href="/search" class="nav-link">Search</a>
+    </div>
+</header>
+<div class="container">
+
+    <h2 class="title">My Library</h2>
+
+    <div class="actions">
+        <a href="/add" class="btn btn-success">+ Add Book</a>
+        <a href="/search" class="btn btn-info">🔍 Search</a>
+    </div>
+
+    <hr>
+
+    {% if books %}
+    <div class="card-grid">
+        {% for book in books %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ book[1] }}</h5>
+                <h6 class="card-subtitle">{{ book[2] }}</h6>
+                <p class="card-text">
+                    {{ book[3] }} pages<br>
+                    Status: <strong>{{ book[4] }}</strong>
+                </p>
+                <a href="/delete/{{ book[0] }}" class="btn btn-danger btn-sm">🗑 Delete</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty-message">No books added yet.</p>
+    {% endif %}
+
+</div>
+<footer class="footer">
+  <p>Made with love. Enjoy!</p>
+</footer>
+</body>
+</html>
